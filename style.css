@@ -1,0 +1,612 @@
+/* ==========================================================co
+   FONTES
+   @font-face permite utilizar uma fonte salva dentro do projeto.
+   Coloque o arquivo Bairro.ttf na pasta "fontes".
+   A McLaren é carregada do Google Fonts por meio do @import.
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=McLaren:wght@400;700&display=swap");
+
+@font-face {
+    font-family: "Bairro";
+    src: url("/fontes/Barrio.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================================
+   VARIÁVEIS DE CORES
+   As variáveis guardam as cores da identidade visual.
+   Assim, a mesma cor pode ser reutilizada em todo o arquivo.
+   ========================================================== */
+
+:root {
+    --creme: #FCF7F3;
+    --amarelo: #FCB630;
+    --rosa: #F59AAC;
+    --verde: #BCCF51;
+    --azul: #60CBE6;
+    --roxo: #532F7A;
+    --branco: #FFFFFF;
+    --sombra: 0 8px 22px rgba(83, 47, 122, 0.14);
+    --borda-arredondada: 18px;
+}
+
+/* ==========================================================
+   CONFIGURAÇÕES GERAIS
+   box-sizing faz largura e altura incluírem bordas e padding.
+   scroll-behavior cria uma rolagem suave nos links internos.
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--creme);
+    color: var(--roxo);
+    font-family: "McLaren", cursive;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Impede que imagens ultrapassem a largura disponível. */
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: var(--roxo);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Deixa o foco do teclado visível para melhorar a acessibilidade. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 4px;
+}
+
+/* ==========================================================
+   TÍTULOS
+   A fonte Bairro é usada nos títulos; as fontes seguintes são
+   alternativas caso o arquivo da fonte não seja encontrado.
+   ========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    color: var(--roxo);
+    font-family: "Bairro", "McLaren", cursive;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 7vw, 5rem);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.55rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+/* ==========================================================
+   CABEÇALHO E MENU
+   Flexbox coloca o nome e o menu lado a lado.
+   position: sticky mantém o cabeçalho visível na rolagem.
+   ========================================================== */
+
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 6%;
+    background-color: rgba(252, 247, 243, 0.96);
+    border-bottom: 3px solid var(--amarelo);
+}
+
+body > header > a {
+    color: var(--roxo);
+    font-family: "Bairro", "McLaren", cursive;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    white-space: nowrap;
+}
+
+body > header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 1.5rem;
+}
+
+body > header nav a {
+    display: inline-block;
+    padding: 0.35rem 0;
+    border-bottom: 3px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+body > header nav a:hover {
+    color: var(--rosa);
+    border-bottom-color: var(--rosa);
+}
+
+/* ==========================================================
+   ORGANIZAÇÃO DAS SEÇÕES
+   max-width limita a largura em monitores grandes.
+   margin: auto centraliza o conteúdo horizontalmente.
+   ========================================================== */
+
+main > section {
+    width: min(1120px, 88%);
+    margin: 0 auto;
+    padding: 5rem 0;
+    scroll-margin-top: 6rem;
+}
+
+/* ==========================================================
+   HERO / APRESENTAÇÃO PRINCIPAL
+   CSS Grid cria duas colunas: texto e imagem.
+   Os quatro primeiros elementos ocupam a primeira coluna.
+   ========================================================== */
+
+main > section:first-child {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+    align-items: center;
+    gap: 2rem 4rem;
+    min-height: calc(100vh - 84px);
+}
+
+main > section:first-child h1,
+main > section:first-child > p,
+main > section:first-child > a {
+    grid-column: 1;
+}
+
+main > section:first-child h1 {
+    align-self: end;
+    margin-bottom: 0;
+}
+
+main > section:first-child > p {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+}
+
+main > section:first-child > a,
+#produtos article > a {
+    display: inline-block;
+    justify-self: start;
+    padding: 0.85rem 1.5rem;
+    background-color: var(--amarelo);
+    border: 2px solid var(--roxo);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 var(--roxo);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+main > section:first-child > a:hover,
+#produtos article > a:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--roxo);
+}
+
+main > section:first-child > figure {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    overflow: hidden;
+    background-color: var(--rosa);
+    border: none;
+    border-radius: 50px
+    box-shadow: 12px 12px 0 var(--azul);
+}
+
+main > section:first-child figure img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+figcaption {
+    padding: 0.75rem 1rem;
+    background-color: var(--branco);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ==========================================================
+   SEÇÃO SOBRE
+   O texto recebe largura controlada para facilitar a leitura.
+   ========================================================== */
+
+#sobre > p {
+    max-width: 780px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+aside {
+    max-width: 780px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 2rem;
+    background-color: var(--azul);
+    border-left: 8px solid var(--roxo);
+    border-radius: var(--borda-arredondada);
+}
+
+aside > :last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================
+   CARDS DE PRODUTOS
+   Flexbox distribui os artigos em uma linha e permite quebra.
+   flex define uma largura-base e deixa os cards crescerem.
+   ========================================================== */
+
+#produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+#produtos > h2,
+#produtos > p {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+#produtos article {
+    display: flex;
+    flex: 1 1 300px;
+    flex-direction: column;
+    max-width: 360px;
+    overflow: hidden;
+    padding: 1rem;
+    background-color: var(--branco);
+    border: 3px solid var(--roxo);
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#produtos article:nth-of-type(1) {
+    background-color: var(--amarelo);
+}
+
+#produtos article:nth-of-type(2) {
+    background-color: var(--rosa);
+}
+
+#produtos article:nth-of-type(3) {
+    background-color: var(--verde);
+}
+
+#produtos article:nth-of-type(4) {
+    background-color: var(--azul);
+}
+
+#produtos article:nth-of-type(5) {
+    background-color: var(--amarelo);
+}
+
+#produtos article:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 0 14px 0 rgba(83, 47, 122, 0.2);
+}
+
+#produtos article figure {
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    border: 2px solid var(--roxo);
+    border-radius: 12px;
+}
+
+#produtos article figure img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+#produtos article p {
+    flex-grow: 1;
+}
+
+#produtos article > a {
+    background-color: var(--creme);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================
+   GALERIA
+   Grid cria colunas automáticas de tamanhos iguais.
+   auto-fit ajusta a quantidade conforme o espaço disponível.
+   ========================================================== */
+
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+#galeria > h2,
+#galeria > p {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+#galeria figure {
+    overflow: hidden;
+    background-color: var(--branco);
+    border: 3px solid var(--roxo);
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra);
+}
+
+#galeria figure img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+#galeria figure:hover img {
+    transform: scale(1.05);
+}
+
+/* ==========================================================
+   CONTATO E FORMULÁRIO
+   O formulário usa Grid para organizar os campos em colunas.
+   ========================================================== */
+
+#contato > p {
+    text-align: center;
+}
+
+#contato form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    max-width: 850px;
+    margin: 2rem auto;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    background-color: var(--rosa);
+    border: 3px solid var(--roxo);
+    border-radius: var(--borda-arredondada);
+    box-shadow: 10px 10px 0 var(--amarelo);
+}
+
+#contato form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* O campo da mensagem ocupa toda a largura do formulário. */
+#contato form div:last-of-type {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-weight: 700;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    color: var(--roxo);
+    background-color: var(--creme);
+    border: 2px solid var(--roxo);
+    border-radius: 10px;
+    font: inherit;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(83, 47, 122, 0.7);
+}
+
+button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    padding: 0.9rem 2rem;
+    color: var(--creme);
+    background-color: var(--roxo);
+    border: 2px solid var(--roxo);
+    border-radius: 999px;
+    font: 700 1rem "McLaren", cursive;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+button:hover {
+    color: var(--roxo);
+    background-color: var(--verde);
+}
+
+#contato aside {
+    background-color: var(--verde);
+}
+
+/* ==========================================================
+   RODAPÉ
+   Usa fundo roxo e texto claro para criar contraste visual.
+   ========================================================== */
+
+footer {
+    padding: 3rem 6%;
+    color: var(--creme);
+    background-color: var(--roxo);
+    text-align: center;
+}
+
+footer h2,
+footer a {
+    color: var(--creme);
+}
+
+footer nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    margin: 1.5rem 0;
+}
+
+footer nav a:hover,
+footer > a:hover {
+    color: var(--amarelo);
+}
+
+footer > a {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE PARA TABLETS
+   A regra é aplicada em telas com até 850px de largura.
+   ========================================================== */
+
+@media (max-width: 850px) {
+    body > header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    main > section {
+        padding: 4rem 0;
+        scroll-margin-top: 9rem;
+    }
+
+    main > section:first-child {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        text-align: center;
+    }
+
+    main > section:first-child h1,
+    main > section:first-child > p,
+    main > section:first-child > a,
+    main > section:first-child > figure {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    main > section:first-child > a {
+        justify-self: center;
+    }
+
+    main > section:first-child > figure {
+        width: min(100%, 520px);
+        margin: 1rem auto 0;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVIDADE PARA CELULARES
+   Em telas menores, galeria e formulário usam uma só coluna.
+   ========================================================== */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+
+    body > header {
+        position: static;
+        padding: 1rem 5%;
+    }
+
+    body > header nav ul {
+        gap: 0.4rem 1rem;
+    }
+
+    main > section {
+        width: 90%;
+        padding: 3.25rem 0;
+        scroll-margin-top: 1rem;
+    }
+
+    main > section:first-child {
+        padding-top: 3rem;
+    }
+
+    #galeria,
+    #contato form {
+        grid-template-columns: 1fr;
+    }
+
+    #galeria > h2,
+    #galeria > p,
+    #contato form div:last-of-type,
+    button {
+        grid-column: 1;
+    }
+
+    aside {
+        padding: 1.25rem;
+    }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE DE MOVIMENTO
+   Se o usuário preferir menos animações no dispositivo,
+   esta regra remove transições e rolagem suave.
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
