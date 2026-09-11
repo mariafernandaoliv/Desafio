@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <!-- Define a codificação dos caracteres para aceitar acentos e símbolos -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página se adaptar corretamente a celulares, tablets e computadores -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Descrição utilizada por mecanismos de busca, como o Google -->
+    <meta
+        name="description"
+        content="Papelaria personalizada para festas infantis, com convites, lembrancinhas, toppers e kits personalizados."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Título exibido na aba do navegador -->
+    <title>Bolinho de Papel  | Papelaria Personalizada Infantil</title>
+</head>
+
+<body>
+
+    <!--
+        O header representa o cabeçalho principal do site.
+        Ele contém a identidade da loja e o menu de navegação.
+    -->
+    <header id="inicio">
+
+        <!--
+            O link leva de volta ao início da página.
+            O texto funciona como o nome ou logotipo da loja.
+        -->
+        <a href="#inicio" aria-label="Voltar para o início do site">
+            <strong>Bolinho de Papel</strong>
+        </a>
+
+        <!--
+            O nav identifica uma área de navegação.
+            aria-label explica aos leitores de tela a função deste menu.
+        -->
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--
+        O main reúne o conteúdo principal da página.
+        Deve existir apenas um elemento main por página.
+    -->
+    <main>
+
+        <!--
+            HERO
+            Esta primeira section apresenta a principal mensagem da loja.
+            O h1 é o título mais importante da página.
+        -->
+        <section aria-labelledby="titulo-principal">
+            <h1 id="titulo-principal">
+                TraNsformamos festas iNfaNtis em memórias iNesquecíveis
+            </h1>
+
+            <p>
+                Papelaria personalizada, criada com carinho para deixar cada
+                detalhe da comemoração ainda mais especial.
+            </p>
+
+            <!--
+                Este link funciona como um botão de chamada para ação.
+                Ele direciona o visitante para o formulário de contato.
+            -->
+            <a href="#contato">Solicite seu orçamento</a>
+
+            <!--
+                Figure agrupa uma imagem com a sua respectiva legenda.
+                Substitua o endereço abaixo pela imagem definitiva do banner.
+            -->
+            <figure>
+                <img
+                    src="imagens/banner-papelaria-infantil.jpg"
+                    alt="Mesa de festa infantil decorada com itens de papelaria personalizada"
+                >
+                <figcaption>
+                    Papelaria criada especialmente para combinar com o tema da festa.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!--
+            SOBRE
+            O atributo aria-labelledby relaciona a seção ao seu título.
+        -->
+        <section id="sobre" aria-labelledby="titulo-sobre">
+            <h2 id="titulo-sobre">Sobre a Bolinho de Papel</h2>
+
+            <p>
+                A Bolinho de Papel é uma loja especializada em papelaria personalizada
+                para festas infantis. Criamos produtos exclusivos de acordo com
+                o tema, as cores e a personalidade de cada criança.
+            </p>
+
+            <p>
+                Nosso objetivo é transformar papel, cores e ilustrações em
+                detalhes afetivos que façam parte das melhores lembranças da família.
+            </p>
+
+            <!--
+                O aside apresenta uma informação complementar ao conteúdo principal.
+            -->
+            <aside aria-labelledby="titulo-destaque">
+                <h3 id="titulo-destaque">Produção personalizada</h3>
+
+                <p>
+                    Como os produtos são preparados especialmente para cada
+                    comemoração, recomendamos fazer o pedido com antecedência.
+                </p>
+            </aside>
+        </section>
+
+        <!--
+            PRODUTOS E SERVIÇOS
+            Esta seção contém cinco artigos independentes.
+            Cada article funciona como um card de produto.
+        -->
+        <section id="produtos" aria-labelledby="titulo-produtos">
+            <h2 id="titulo-produtos">Produtos personalizados</h2>
+
+            <p>
+                Conheça algumas opções que podem fazer parte da sua festa:
+            </p>
+
+            <!-- Card 1 -->
+            <article>
+                <figure>
+                    <img
+                        src="imagens/convites-personalizados.jpg"
+                        alt="Convites infantis personalizados com ilustrações coloridas"
+                        loading="lazy"
+                    >
+                    <figcaption>Convites personalizados</figcaption>
+                </figure>
+
+                <h3>Convites personalizados</h3>
+
+                <p>
+                    Convites impressos ou digitais desenvolvidos especialmente
+                    para apresentar o tema da comemoração.
+                </p>
+
+                <a href="#contato">Solicitar orçamento</a>
+            </article>
+
+            <!-- Card 2 -->
+            <article>
+                <figure>
+                    <img
+                        src="imagens/kit-festa-personalizado.jpg"
+                        alt="Kit de festa infantil com caixinhas e embalagens personalizadas"
+                        loading="lazy"
+                    >
+                    <figcaption>Kit personalizado para festa infantil</figcaption>
+                </figure>
+
+                <h3>Kits para festa</h3>
+
+                <p>
+                    Conjuntos com caixinhas, embalagens e outros detalhes
+                    decorativos combinando com a identidade da festa.
+                </p>
+
+                <a href="#contato">Solicitar orçamento</a>
+            </article>
+
+            <!-- Card 3 -->
+            <article>
+                <figure>
+                    <img
+                        src="imagens/topper-de-bolo.jpg"
+                        alt="Bolo infantil decorado com topper de papel personalizado"
+                        loading="lazy"
+                    >
+                    <figcaption>Topper personalizado para bolo</figcaption>
+                </figure>
+
+                <h3>Toppers para bolo</h3>
+
+                <p>
+                    Toppers com nome, idade, personagens e elementos que
+                    complementam a decoração do bolo.
+                </p>
+
+                <a href="#contato">Solicitar orçamento</a>
+            </article>
+
+            <!-- Card 4 -->
+            <article>
+                <figure>
+                    <img
+                        src="imagens/lembrancinhas-infantis.jpg"
+                        alt="Lembrancinhas de festa infantil organizadas sobre uma mesa"
+                        loading="lazy"
+                    >
+                    <figcaption>Lembrancinhas infantis personalizadas</figcaption>
+                </figure>
+
+                <h3>Lembrancinhas</h3>
+
+                <p>
+                    Opções criativas e afetivas para agradecer aos convidados
+                    e guardar uma recordação da comemoração.
+                </p>
+
+                <a href="#contato">Solicitar orçamento</a>
+            </article>
+
+            <!-- Card 5 -->
+            <article>
+                <figure>
+                    <img
+                        src="imagens/bandeirolas-personalizadas.jpg"
+                        alt="Bandeirolas coloridas com o nome da criança na decoração da festa"
+                        loading="lazy"
+                    >
+                    <figcaption>Bandeirolas para decoração</figcaption>
+                </figure>
+
+                <h3>BanDeirolas decorativas</h3>
+
+                <p>
+                    Bandeirolas personalizadas para decorar a mesa principal,
+                    o painel da festa ou o quarto da criança.
+                </p>
+
+                <a href="#contato">Solicitar orçamento</a>
+            </article>
+        </section>
+
+        <!--
+            GALERIA
+            As imagens são demonstrativas e podem ser substituídas posteriormente.
+            O atributo loading="lazy" faz a imagem carregar somente quando estiver
+            próxima de aparecer na tela, ajudando no desempenho da página.
+        -->
+        <section id="galeria" aria-labelledby="titulo-galeria">
+            <h2 id="titulo-galeria">Galeria de trabalhos</h2>
+
+            <p>
+                Alguns detalhes personalizados que já fizeram parte de festas especiais.
+            </p>
+
+            <figure>
+                <img
+                    src="imagens/galeria-festa-01.jpg"
+                    alt="Caixinhas personalizadas organizadas na mesa de uma festa infantil"
+                    loading="lazy"
+                >
+                <figcaption>Caixinhas personalizadas para lembrancinhas.</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="imagens/galeria-festa-02.jpg"
+                    alt="Detalhes de papelaria personalizada em uma decoração infantil"
+                    loading="lazy"
+                >
+                <figcaption>Detalhes desenvolvidos de acordo com o tema da festa.</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="imagens/galeria-festa-03.jpg"
+                    alt="Kit de papelaria infantil com convite, topper e bandeirolas"
+                    loading="lazy"
+                >
+                <figcaption>Kit completo de papelaria para festa infantil.</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="imagens/galeria-festa-04.jpg"
+                    alt="Mesa de aniversário infantil decorada com produtos personalizados"
+                    loading="lazy"
+                >
+                <figcaption>Produtos personalizados aplicados na decoração.</figcaption>
+            </figure>
+        </section>
+
+        <!--
+            CONTATO
+            Esta seção contém informações de atendimento e um formulário.
+        -->
+        <section id="contato" aria-labelledby="titulo-contato">
+            <h2 id="titulo-contato">ENtre em coNtato</h2>
+
+            <p>
+                Conte um pouco sobre a festa para receber um orçamento personalizado.
+            </p>
+
+            <!--
+                O form agrupa os campos que serão preenchidos pelo visitante.
+                O atributo action deve receber o endereço responsável pelo envio.
+                O método post é adequado para enviar informações de formulário.
+            -->
+            <form action="#" method="post">
+
+                <!--
+                    O label identifica a finalidade do campo.
+                    O atributo for deve ter o mesmo valor do id do input.
+                -->
+                <div>
+                    <label for="nome">Nome completo:</label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        autocomplete="name"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="email">E-mail:</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="exemplo@email.com"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="telefone">Telefone ou WhatsApp:</label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        autocomplete="tel"
+                        placeholder="(21) 99999-9999"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="data-festa">Data da festa:</label>
+
+                    <input
+                        type="date"
+                        id="data-festa"
+                        name="data-festa"
+                    >
+                </div>
+
+                <div>
+                    <label for="tema">Tema da festa:</label>
+
+                    <input
+                        type="text"
+                        id="tema"
+                        name="tema"
+                        placeholder="Exemplo: Jardim Encantado"
+                    >
+                </div>
+
+                <div>
+                    <label for="mensagem">Conte o que você precisa:</label>
+
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        rows="6"
+                        placeholder="Informe os produtos desejados, a quantidade e outros detalhes"
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- O button envia as informações preenchidas no formulário -->
+                <button type="submit">Enviar solicitação</button>
+            </form>
+
+            <!-- Informação complementar ao formulário -->
+            <aside aria-labelledby="titulo-atendimento">
+                <h3 id="titulo-atendimento">Atendimento</h3>
+
+                <p>Segunda a sexta-feira, das 9h às 18h.</p>
+
+                <address>
+                    <p>
+                        E-mail:
+                        <a href="mailto:contato@bolinhodepapel.com.br">
+                            contato@bolinhodepapel.com.br
+                        </a>
+                    </p>
+
+                    <p>
+                        WhatsApp:
+                        <a href="https://wa.me/5521999999999">
+                            (21) 99999-9999
+                        </a>
+                    </p>
+                </address>
+            </aside>
+        </section>
+    </main>
+
+    <!--
+        O footer representa o rodapé da página.
+        Ele reúne informações finais, redes sociais e direitos autorais.
+    -->
+    <footer>
+        <section aria-labelledby="titulo-redes">
+            <h2 id="titulo-redes">Acompanhe a Bolinho de Papel</h2>
+
+            <!-- Navegação específica para as redes sociais -->
+            <nav aria-label="Redes sociais">
+                <ul>
+                    <li>
+                        <a
+                            href="https://www.instagram.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://www.facebook.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Facebook
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://www.pinterest.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Pinterest
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <p>
+            <small>
+                &copy; 2026 Bolinho de Papel. Todos os direitos reservados.
+            </small>
+        </p>
+
+        <!-- Facilita o retorno ao começo da página -->
+        <a href="#inicio">Voltar ao início</a>
+    </footer>
+
+</body>
+</html>
