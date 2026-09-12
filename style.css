@@ -1,3 +1,5 @@
+
+
 /* ==========================================================co
    FONTES
    @font-face permite utilizar uma fonte salva dentro do projeto.
@@ -27,7 +29,7 @@
     --rosa: #F59AAC;
     --verde: #BCCF51;
     --azul: #60CBE6;
-    --roxo: #532F7A;
+    --roxo: #251238;
     --branco: #FFFFFF;
     --sombra: 0 8px 22px rgba(83, 47, 122, 0.14);
     --borda-arredondada: 18px;
@@ -125,48 +127,255 @@ p {
 }
 
 /* ==========================================================
-   CABEÇALHO E MENU
-   Flexbox coloca o nome e o menu lado a lado.
-   position: sticky mantém o cabeçalho visível na rolagem.
+   CABEÇALHO PRINCIPAL
+   Grid organiza os elementos na seguinte ordem:
+   nome da loja, pesquisa, login e carrinho.
+   O menu ocupa toda a segunda linha.
    ========================================================== */
 
 body > header {
     position: sticky;
     top: 0;
     z-index: 10;
-    display: flex;
+
+    display: grid;
+
+    /* Cria quatro colunas:
+       1. Nome da loja;
+       2. Barra de pesquisa, que ocupa o espaço disponível;
+       3. Botão de login;
+       4. Botão do carrinho. */
+    grid-template-columns: auto minmax(260px, 1fr) auto auto;
+
+    grid-template-areas:
+        "logo pesquisa acoes acoes"
+        "menu menu menu menu";
+
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
+
     padding: 1rem 6%;
-    background-color: rgba(252, 247, 243, 0.96);
+
+    background-color: rgba(252, 247, 243, 0.97);
     border-bottom: 3px solid var(--amarelo);
 }
 
-body > header > a {
+
+/* ==========================================================
+   NOME DA LOJA
+   ========================================================== */
+
+.logo {
+    grid-area: logo;
+
     color: var(--roxo);
-    font-family: "Bairro", "McLaren", cursive;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+
+    font-family: "Bairro", "McLaren", sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+
     white-space: nowrap;
 }
 
-body > header nav ul {
+
+/* ==========================================================
+   BARRA DE PESQUISA
+   O campo fica entre o nome da loja e os botões.
+   ========================================================== */
+
+.barra-pesquisa {
+    grid-area: pesquisa;
+
+    display: flex;
+
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* O campo ocupa todo o espaço disponível da pesquisa. */
+.barra-pesquisa input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 0.75rem 1rem;
+
+    color: var(--roxo);
+    background-color: var(--branco);
+
+    border: 2px solid var(--roxo);
+    border-right: none;
+    border-radius: 999px 0 0 999px;
+
+    font-family: "McLaren", sans-serif;
+}
+
+/* Botão de pesquisar. */
+.barra-pesquisa button {
+    grid-column: auto;
+    justify-self: auto;
+
+    padding: 0.75rem 1.1rem;
+
+    color: var(--creme);
+    background-color: var(--roxo);
+
+    border: 2px solid var(--roxo);
+    border-radius: 0 999px 999px 0;
+
+    font-family: "McLaren", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.barra-pesquisa button:hover {
+    color: var(--roxo);
+    background-color: var(--amarelo);
+}
+
+
+/* ==========================================================
+   BOTÕES DE LOGIN E CARRINHO
+   Flexbox coloca os dois botões lado a lado.
+   ========================================================== */
+
+.acoes-usuario {
+    grid-area: acoes;
+
+    display: flex;
+
+    /* row organiza os elementos horizontalmente. */
+    flex-direction: row;
+   -row: row;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 0.75rem;
+    justify-self: end;
+}
+
+/* Configuração compartilhada pelos dois botões. */
+.botao-conta,
+.botao-carrinho {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+
+    min-height: 44px;
+    padding: 0.65rem 1rem;
+
+    color: var(--roxo);
+
+    border: 2px solid var(--roxo);
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Cor do botão de login. */
+.botao-conta {
+    background-color: var(--verde);
+}
+
+/* Cor do botão do carrinho. */
+.botao-carrinho {
+    background-color: var(--azul);
+}
+
+/* Efeito ao passar o mouse nos botões. */
+.botao-conta:hover,
+.botao-carrinho:hover {
+    background-color: var(--amarelo);
+    transform: translateY(-2px);
+}
+
+/* Define o tamanho do ícone do carrinho. */
+.botao-carrinho img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* Contador de produtos do carrinho. */
+.quantidade-carrinho {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    color: var(--creme);
+    background-color: var(--roxo);
+    border-radius: 50%;
+
+    font-size: 0.75rem;
+}
+
+
+/* ==========================================================
+   MENU PRINCIPAL
+   O menu aparece em uma linha abaixo do cabeçalho.
+   ========================================================== */
+
+.menu-principal {
+    grid-area: menu;
+}
+
+.menu-principal ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.6rem 1.5rem;
+
+    gap: 0.5rem 1.5rem;
 }
 
-body > header nav a {
+.menu-principal a {
     display: inline-block;
-    padding: 0.35rem 0;
+
+    padding: 0.3rem 0;
+
     border-bottom: 3px solid transparent;
-    transition: color 0.25s ease, border-color 0.25s ease;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
-body > header nav a:hover {
+.menu-principal a:hover {
     color: var(--rosa);
     border-bottom-color: var(--rosa);
+}
+
+/* ==========================================================
+   TEXTO EXCLUSIVO PARA LEITORES DE TELA
+   O conteúdo permanece disponível para tecnologias assistivas,
+   mas não ocupa espaço visual na página.
+   ========================================================== */
+
+.texto-leitor-tela {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* ==========================================================
@@ -192,7 +401,7 @@ main > section:first-child {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
     align-items: center;
-    gap: 2rem 4rem;
+    gap: 2rem 9rem;
     min-height: calc(100vh - 84px);
 }
 
@@ -391,6 +600,275 @@ aside > :last-child {
 #galeria figure:hover img {
     transform: scale(1.05);
 }
+
+/* ==========================================================
+   SEÇÃO DE AVALIAÇÕES
+   O CSS Grid cria três colunas iguais, mantendo os três cards
+   lado a lado em telas de computador e tablet.
+   ========================================================== */
+
+#avaliacoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+/* O título e a introdução ocupam toda a largura da seção. */
+#avaliacoes > h2,
+#avaliacoes > .introducao-avaliacoes {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+}
+
+#avaliacoes > h2 {
+    margin-bottom: 0;
+}
+
+.introducao-avaliacoes {
+    margin: 0 0 1.5rem;
+}
+
+
+/* ==========================================================
+   CARDS DE AVALIAÇÃO
+   Cada card ocupa toda a largura da coluna correspondente.
+   ========================================================== */
+
+.card-avaliacao {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    padding: 1.5rem;
+
+    background-color: var(--branco);
+    border: 3px solid var(--roxo);
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Adiciona uma cor diferente na parte superior de cada card. */
+.card-avaliacao:nth-of-type(1) {
+    border-top: 10px solid var(--rosa);
+}
+
+.card-avaliacao:nth-of-type(2) {
+    border-top: 10px solid var(--verde);
+}
+
+.card-avaliacao:nth-of-type(3) {
+    border-top: 10px solid var(--azul);
+}
+
+/* Move o card levemente para cima quando o mouse passa sobre ele. */
+.card-avaliacao:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 13px 0 rgba(83, 47, 122, 0.18);
+}
+
+
+/* ==========================================================
+   CABEÇALHO INTERNO DO CARD
+   Organiza a fotografia, o nome e as estrelas.
+   ========================================================== */
+
+.card-avaliacao > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+
+    width: 100%;
+    padding-bottom: 1rem;
+
+    background-color: transparent;
+    border-bottom: 2px dashed var(--rosa);
+}
+
+/* Mantém a imagem e o nome lado a lado. */
+.card-avaliacao figure {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    min-width: 0;
+}
+
+/* Formata a fotografia da cliente como um círculo. */
+.card-avaliacao figure img {
+    flex-shrink: 0;
+
+    width: 56px;
+    height: 56px;
+
+    object-fit: cover;
+    border: 2px solid var(--roxo);
+    border-radius: 50%;
+}
+
+/* Estiliza o nome da cliente. */
+.card-avaliacao figcaption {
+    padding: 0;
+
+    color: var(--roxo);
+    background-color: transparent;
+
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Estiliza as estrelas da avaliação. */
+.estrelas {
+    flex-shrink: 0;
+    margin: 0;
+
+    color: var(--amarelo);
+
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+
+    text-shadow:
+        1px 0 var(--roxo),
+        -1px 0 var(--roxo),
+        0 1px var(--roxo),
+        0 -1px var(--roxo);
+}
+
+
+/* ==========================================================
+   DEPOIMENTO E PRODUTO AVALIADO
+   flex-grow mantém o produto alinhado na parte inferior.
+   ========================================================== */
+
+.card-avaliacao blockquote {
+    flex-grow: 1;
+
+    margin: 1.25rem 0;
+
+    font-style: italic;
+}
+
+.card-avaliacao blockquote p {
+    margin: 0;
+}
+
+.produto-avaliado {
+    margin: 0;
+
+    color: var(--roxo);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   TEXTO ACESSÍVEL
+   Fica disponível para leitores de tela, mas não aparece
+   visualmente na página.
+   ========================================================== */
+
+.texto-leitor-tela {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE PARA TABLETS
+   Os três cards continuam lado a lado, porém com menos espaço
+   e preenchimento interno.
+   ========================================================== */
+
+@media (max-width: 900px) {
+    #avaliacoes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .card-avaliacao {
+        padding: 1rem;
+    }
+
+    /* Em espaços menores, foto, nome e estrelas são organizados
+       verticalmente dentro de cada card. */
+    .card-avaliacao > header {
+        flex        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    .card-avaliacao figure img {
+        width        width: 46px
+        height: 48px;
+   px;
+    }
+
+px;
+    }
+
+    .card-avaliacao figcaption {
+        font-size: 0.9rem;
+    }
+
+    .estlas {
+               font-size: 0.85rem;
+        letter-spacing: 0;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE PARA CELUL
+   No celular, os cards ficam empilhados para evitar a leitura
+   e evitar rolagem horizontal.
+   =================================================================== */
+
+@media (max-width: 600px) {
+    #avaliacoes {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .card-avaliacao {
+        width: 100%;
+        padding: 1.25rem;
+    }
+
+    .card-avaliacao > header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .card-avaliacao figure img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .estrelas {
+        font-size: 0.9rem;
+    }
+}
+
 
 /* ==========================================================
    CONTATO E FORMULÁRIO

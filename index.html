@@ -27,30 +27,82 @@
         O header representa o cabeçalho principal do site.
         Ele contém a identidade da loja e o menu de navegação.
     -->
-    <header id="inicio">
+    <<!-- =========================================================
+     CABEÇALHO PRINCIPAL
+     Contém nome da loja, pesquisa, conta, carrinho e navegação.
+     ========================================================= -->
+<header id="inicio">
 
-        <!--
-            O link leva de volta ao início da página.
-            O texto funciona como o nome ou logotipo da loja.
-        -->
-        <a href="#inicio" aria-label="Voltar para o início do site">
-            <strong>Bolinho de Papel</strong>
+    <!-- Nome ou logotipo da loja -->
+    <a class="logo" href="#inicio" aria-label="Voltar para o início">
+        <strong>Bolinho de Papel</strong>
+    </a>
+
+    <!--
+        Barra de pesquisa.
+        O atributo role="search" informa aos leitores de tela
+        que este formulário é utilizado para pesquisas.
+        Sem JavaScript ou back-end, o campo será apenas demonstrativo.
+    -->
+    <form class="barra-pesquisa" role="search" action="#" method="get">
+        <label class="texto-leitor-tela" for="pesquisa">
+            Pesquisar produtos
+        </label>
+
+        <input
+            type="search"
+            id="pesquisa"
+            name="pesquisa"
+            placeholder="O que você está procurando?"
+        >
+
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    <!-- Área com os botões de conta e carrinho -->
+    <nav class="acoes-usuario" aria-label="Área do cliente">
+
+        <!-- Link demonstrativo para cadastro ou login -->
+        <a class="botao-conta" href="#cadastro">
+            Cadastro/Login
         </a>
 
         <!--
-            O nav identifica uma área de navegação.
-            aria-label explica aos leitores de tela a função deste menu.
+            Botão do carrinho.
+            A imagem pode ser substituída pelo ícone escolhido posteriormente.
         -->
-        <nav aria-label="Navegação principal">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+        <a
+            class="botao-carrinho"
+            href="#carrinho"
+            aria-label="Abrir carrinho de compras"
+        >
+            <img
+                src="imagens/icone-carrinho.svg"
+                alt=""
+                aria-hidden="true"
+            >
+
+            <span>Carrinho</span>
+
+            <!-- Quantidade demonstrativa de produtos -->
+            <span class="quantidade-carrinho" aria-label="0 produtos no carrinho">
+                0
+            </span>
+        </a>
+    </nav>
+
+    <!-- Menu principal da página -->
+    <nav class="menu-principal" aria-label="Navegação principal">
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#avaliacoes">Avaliações</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
 
     <!--
         O main reúne o conteúdo principal da página.
@@ -293,6 +345,112 @@
             </figure>
         </section>
 
+<!-- =========================================================
+     AVALIAÇÕES DE CLIENTES
+     A section reúne as avaliações e cada article representa
+     um depoimento independente.
+     ========================================================= -->
+<section id="avaliacoes" aria-labelledby="titulo-avaliacoes">
+
+    <h2 id="titulo-avaliacoes">O que nossos clientes dizem</h2>
+
+    <p class="introducao-avaliacoes">
+        Histórias de quem escolheu a Bolinho de Papel para deixar
+        a comemoração ainda mais especial.
+    </p>
+
+    <!-- Card de avaliação 1 -->
+    <article class="card-avaliacao">
+        <header>
+            <figure>
+                <img
+                    src="imagens/cliente-mariana.jpg"
+                    alt="Retrato de Mariana Alves, cliente da Bolinho de Papel"
+                    loading="lazy"
+                >
+
+                <figcaption>Mariana Alves</figcaption>
+            </figure>
+
+            <!--
+                O texto escondido informa a nota de maneira acessível.
+                Os símbolos visuais ficam ocultos dos leitores de tela.
+            -->
+            <p class="estrelas" aria-hidden="true">★★★★★</p>
+            <p class="texto-leitor-tela">Avaliação: 5 de 5 estrelas.</p>
+        </header>
+
+        <blockquote>
+            <p>
+                “A papelaria ficou linda e combinou perfeitamente com
+                o tema da festa. Cada detalhe foi feito com muito carinho.”
+            </p>
+        </blockquote>
+
+        <p class="produto-avaliado">
+            Kit personalizado Jardim Encantado
+        </p>
+    </article>
+
+    <!-- Card de avaliação 2 -->
+    <article class="card-avaliacao">
+        <header>
+            <figure>
+                <img
+                    src="imagens/cliente-juliana.jpg"
+                    alt="Retrato de Juliana Ferreira, cliente da Bolinho de Papel"
+                    loading="lazy"
+                >
+
+                <figcaption>Juliana Ferreira</figcaption>
+            </figure>
+
+            <p class="estrelas" aria-hidden="true">★★★★★</p>
+            <p class="texto-leitor-tela">Avaliação: 5 de 5 estrelas.</p>
+        </header>
+
+        <blockquote>
+            <p>
+                “Os convites ficaram delicados e chegaram dentro do prazo.
+                Todos os convidados elogiaram o resultado.”
+            </p>
+        </blockquote>
+
+        <p class="produto-avaliado">
+            Convites personalizados
+        </p>
+    </article>
+
+    <!-- Card de avaliação 3 -->
+    <article class="card-avaliacao">
+        <header>
+            <figure>
+                <img
+                    src="imagens/cliente-renata.jpg"
+                    alt="Retrato de Renata Souza, cliente da Bolinho de Papel"
+                    loading="lazy"
+                >
+
+                <figcaption>Renata Souza</figcaption>
+            </figure>
+
+            <p class="estrelas" aria-hidden="true">★★★★★</p>
+            <p class="texto-leitor-tela">Avaliação: 5 de 5 estrelas.</p>
+        </header>
+
+        <blockquote>
+            <p>
+                “O atendimento foi cuidadoso e o topper ficou exatamente
+                como eu imaginava. Deixou o bolo ainda mais especial.”
+            </p>
+        </blockquote>
+
+        <p class="produto-avaliado">
+            Topper personalizado
+        </p>
+    </article>
+</section
+        
         <!--
             CONTATO
             Esta seção contém informações de atendimento e um formulário.
