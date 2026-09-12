@@ -3,14 +3,14 @@
 /* ==========================================================co
    FONTES
    @font-face permite utilizar uma fonte salva dentro do projeto.
-   Coloque o arquivo Bairro.ttf na pasta "fontes".
+   Coloque o arquivo Barrio.ttf na pasta "fontes".
    A McLaren é carregada do Google Fonts por meio do @import.
    ========================================================== */
 
 @import url("https://fonts.googleapis.com/css2?family=McLaren:wght@400;700&display=swap");
 
 @font-face {
-    font-family: "Bairro";
+    font-family: "Barrio";
     src: url("/fontes/Barrio.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
@@ -92,7 +92,7 @@ textarea:focus-visible {
 
 /* ==========================================================
    TÍTULOS
-   A fonte Bairro é usada nos títulos; as fontes seguintes são
+   A fonte Barrio é usada nos títulos; as fontes seguintes são
    alternativas caso o arquivo da fonte não seja encontrado.
    ========================================================== */
 
@@ -104,7 +104,7 @@ h5,
 h6 {
     margin-top: 0;
     color: var(--roxo);
-    font-family: "Bairro", "McLaren", cursive;
+    font-family: "Barrio", "McLaren", cursive;
     line-height: 1.15;
 }
 
@@ -170,7 +170,7 @@ body > header {
 
     color: var(--roxo);
 
-    font-family: "Bairro", "McLaren", sans-serif;
+    font-family: "Barrio", "McLaren", sans-serif;
     font-size: clamp(1.4rem, 2.5vw, 2.1rem);
 
     white-space: nowrap;
